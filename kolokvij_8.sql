@@ -119,6 +119,10 @@ inner join neprijatelj n on b.sifra = n.becar
 inner join brat b2 on n.sifra = b2.neprijatelj 
 where b.treciputa is not null and m.drugiputa is not null;
 
+#Prikažite kolone drugiputa i treciputa iz tablice muskarac čiji se primarni ključ ne nalaze u tablici muskarac_decko.
+select m.drugiputa , m.treciputa 
+from muskarac m inner join muskarac_decko md on m.sifra = md.muskarac 
+where md.muskarac is null;
 
 
 
