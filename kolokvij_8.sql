@@ -46,20 +46,20 @@ create table becar(
 );
 
 create table muskarac(
-	sifra int not null primary key auto_increment,(47),
+	sifra int not null primary key auto_increment,
 	haljina varchar(44),
 	drugiputa datetime not null,
-	treciputa datetime,
+	treciputa datetime
 );
 
 create table decko(
 	sifra int not null primary key auto_increment,
-	kuna decimal(),
-	lipa decimal(),
+	kuna decimal(12,10),
+	lipa decimal(17,10),
 	bojakose varchar(44),
 	treciputa datetime not null,
 	ogrlica int not null,
-	ekstroverto bit not null
+	ekstrovertno bit not null
 );
 
 create table muskarac_decko(
@@ -78,5 +78,37 @@ alter table becar add foreign key (muskarac) references muskarac(sifra);
 
 alter table muskarac_decko add foreign key (muskarac) references muskarac(sifra);
 alter table muskarac_decko add foreign key (decko) references decko(sifra);
+
+#U tablice neprijatelj, becar i muskarac_decko unesite po 3 retka.
+#muskarac, decko, muskarac_decko, becar, neprijatelj
+insert into muskarac(drugiputa)
+values('2020-01-01'),('2019-01-01'),('2018-01-01');
+
+insert into decko(treciputa,ogrlica,ekstrovertno)
+values('2020-01-01',17,0),('2008-02-01',15,1),('1998-05-23',7,1);
+
+insert into muskarac_decko(muskarac,decko)
+values(1,1),(2,2),(3,3);
+
+insert into becar(eura,muskarac)
+values(13.87,1),(14.86,2),(21.54,3);
+
+insert into neprijatelj(ogrlica,becar)
+values(7,1),(20,2),(29,3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
