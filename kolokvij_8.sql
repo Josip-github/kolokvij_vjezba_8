@@ -40,7 +40,7 @@ create table brat(
 create table becar(
 	sifra int not null primary key auto_increment,
 	eura decimal(15,10) not null,
-	trciputa datetime,
+	treciputa datetime,
 	prviputa datetime,
 	muskarac int not null
 );
@@ -102,6 +102,8 @@ update cura set indiferentno = false;
 #U tablici brat obrišite sve zapise čija je vrijednost kolone novcica različito od 12,75.
 delete from brat where novcica != '12.75';
 
+#Izlistajte prviputa iz tablice becar uz uvjet da vrijednost kolone treciputa nepoznate.
+select prviputa from becar b where b.treciputa is null;
 
 
 
