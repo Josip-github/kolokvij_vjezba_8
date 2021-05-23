@@ -96,6 +96,9 @@ values(13.87,1),(14.86,2),(21.54,3);
 insert into neprijatelj(ogrlica,becar)
 values(7,1),(20,2),(29,3);
 
+#U tablici cura postavite svim zapisima kolonu indiferentno na vrijednost false.
+update cura set indiferentno = false;
+
 
 
 
