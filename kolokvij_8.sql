@@ -105,6 +105,20 @@ delete from brat where novcica != '12.75';
 #Izlistajte prviputa iz tablice becar uz uvjet da vrijednost kolone treciputa nepoznate.
 select prviputa from becar b where b.treciputa is null;
 
+/*Prikažite bojakose iz tablice decko, neprijatelj iz tablice brat te
+introvertno iz tablice neprijatelj uz uvjet da su vrijednosti kolone
+treciputa iz tablice becar poznate te da su vrijednosti kolone
+drugiputa iz tablice muskarac poznate. Podatke posložite po
+introvertno iz tablice neprijatelj silazno.*/
+#decko, brat,neprijatelj,becar,muskarac
+select d.bojakose , b2.neprijatelj , n.introvertno 
+from decko d inner join muskarac_decko md on d.sifra = md.decko 
+inner join muskarac m on m.sifra = md.muskarac 
+inner join becar b on m.sifra = b.muskarac 
+inner join neprijatelj n on b.sifra = n.becar 
+inner join brat b2 on n.sifra = b2.neprijatelj 
+where b.treciputa is not null and m.drugiputa is not null;
+
 
 
 
