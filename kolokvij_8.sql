@@ -99,6 +99,8 @@ values(7,1),(20,2),(29,3);
 #U tablici cura postavite svim zapisima kolonu indiferentno na vrijednost false.
 update cura set indiferentno = false;
 
+#U tablici brat obrišite sve zapise čija je vrijednost kolone novcica različito od 12,75.
+delete from brat where novcica != '12.75';
 
 
 
